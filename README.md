@@ -1,15 +1,23 @@
-# NodeBB Youtube Lite Plugin
+# NodeBB Youtube Embed Plugin
 
-The Youtube Lite plugin now supports v3 of Youtubes API, this means you will need an API key. Find out more about that further down this document. 
-Youtube Lite allows you to lazyload youtube videos into your NodeBB Forum with no code knowledge on the users end. (Just paste any video URL)
+The Youtube Embed plugin allows users to embed Youtube videos into NodeBB posts. Simply add the
+link to the video on its own line.
 
+In order to get title and duration information, the plugin needs to be configured with an API
+key. See here for details on acquiring one:
+
+https://developers.google.com/youtube/v3/getting-started
+
+This plugin was forked from [nodebb-plugin-youtube-lite](https://github.com/a5mith/nodebb-plugin-youtube-lite).
 
 ## Installation
 
-    npm install nodebb-plugin-youtube-lite
+Search in the 
 
+    npm install nodebb-plugin-youtube-embed
 
-##Changes in V3
+## Changes
+
     0.6.0
      - Works with NodeBB 1.0
      - Moved most of the work to the server, to include API calls (keeps API key
@@ -18,10 +26,8 @@ Youtube Lite allows you to lazyload youtube videos into your NodeBB Forum with n
      - Supports `t=`, '`start=`', `end=` query string parameters
      - With valid API key displays title, channel and duration information
      - Support `#` in query strings
-	0.5.0
-	 - Plugin now supports [Youtube API v3](https://developers.google.com/youtube/v3/?hl=en)
-	
-##Changes
+    0.5.0
+        - Plugin now supports [Youtube API v3](https://developers.google.com/youtube/v3/?hl=en)
     0.4.7
      - Changes to Desktop Video Size & Fixed CSS Issues
     0.4.5
