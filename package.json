@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-youtube-embed",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "nbbpm": {
     "compatibility": "^1.0.3 "
   },
@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/boomzillawtf/nodebb-plugin-youtube-embed.git"
   },
-  "dependencies":{
-	"lru-cache": "^4.0.1"
+  "dependencies": {
+    "lru-cache": "^4.0.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
