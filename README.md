@@ -20,6 +20,7 @@ Search in the
 
     0.6.1
      - Added transparent background and hover effect for play button
+     - Max-width style to the main div for small screens and narrow styles
     0.6.0
      - Works with NodeBB 1.0
      - Moved most of the work to the server, to include API calls (keeps API key
