@@ -81,7 +81,6 @@ iframe.lazytube {
 
 .ytp-thumbnail {
   padding-bottom: inherit;
-  cursor: pointer;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -93,8 +92,11 @@ iframe.lazytube {
 /*
  * Play button (YouTube style)
  */
-
+.ytp-large-play-button-bg:hover {
+  fill: red;
+}
 .ytp-large-play-button {
+  cursor: pointer;
   position: absolute;
   top: 50% !important;
   left: 50% !important;
@@ -105,7 +107,13 @@ iframe.lazytube {
   font-size: normal !important;
   font-weight: normal !important;
   line-height: 1 !important;
-  opacity: .9;
+  background-color: transparent;
+  border-width: 0px;
+/*   transition: opacity 0.25s cubic-bezier(0.0, 0.0, 0.2, 1); */
+  transition-property: opacity;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
+  transition-delay: initial;
 }
 
 .ytp-large-play-button-svg {
