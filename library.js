@@ -328,7 +328,7 @@ YoutubeLite.parsePost = function(data, callback) {
 
 YoutubeLite.parseDuration = function(PT, settings) {
     var durationInSec = 0;
-    var matches = PT.match(/P(?:(\d*)Y)?(?:(\d*)M)?(?:(\d*)W)?(?:(\d*)D)?T(?:(\d*)H)?(?:(\d*)M)?(?:(\d*)S)?/i);
+    var matches = PT.match(/P(?:(\d*)Y)?(?:(\d*)M)?(?:(\d*)W)?(?:(\d*)D)?(?:T(?:(\d*)H)?(?:(\d*)M)?(?:(\d*)S)?)?/i);
     if( !matches ){
         winston.error( 'unparsable youtube duration: ' + PT );
         return null;

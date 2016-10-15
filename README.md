@@ -18,6 +18,8 @@ Search in the
 
 ## Changes
 
+    0.6.3
+     - Parse durations that do not have a time component
     0.6.2
      - Don't crash if we can't parse the duration sent by Youtube
     0.6.1
