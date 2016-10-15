@@ -18,6 +18,8 @@ Search in the
 
 ## Changes
 
+    0.6.2
+     - Don't crash if we can't parse the duration sent by Youtube
     0.6.1
      - Added transparent background and hover effect for play button
      - Max-width style to the main div for small screens and narrow styles

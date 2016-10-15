@@ -86,7 +86,15 @@ YoutubeLite.fetchSnippet = function( videoId, callback ){
                 var snippet = videos.items[0].snippet;
                 snippet.title = replaceAll( snippet.title, '<', '&lt;');
                 snippet.channelTitle = replaceAll( snippet.channelTitle, '<', '&lt;');
-                snippet.duration = timeToString( parseDuration( videos.items[0].contentDetails.duration ) );
+                var duration = YoutubeLite.parseDuration( videos.items[0].contentDetails.duration )
+                if( duration ){
+                    snippet.duration = timeToString( duration );
+                }
+                else{
+                    snippet.duration = 'ERROR: Unable to parse duration "' + 
+                        videos.items[0].contentDetails.duration +
+                        '". Please notify an administrator!';
+                }
                 cache.set( videoId, snippet );
                 callback( null, snippet );
             });
@@ -318,9 +326,13 @@ YoutubeLite.parsePost = function(data, callback) {
     });
 };
 
-function parseDuration(PT, settings) {
+YoutubeLite.parseDuration = function(PT, settings) {
     var durationInSec = 0;
     var matches = PT.match(/P(?:(\d*)Y)?(?:(\d*)M)?(?:(\d*)W)?(?:(\d*)D)?T(?:(\d*)H)?(?:(\d*)M)?(?:(\d*)S)?/i);
+    if( !matches ){
+        winston.error( 'unparsable youtube duration: ' + PT );
+        return null;
+    }
     var parts = [
         { // years
             pos: 1,
@@ -375,5 +387,7 @@ function timeToString(seconds){
     
     return output.join(':');
 }
+
+YoutubeLite.timeToString = timeToString;
 
 module.exports = YoutubeLite;
