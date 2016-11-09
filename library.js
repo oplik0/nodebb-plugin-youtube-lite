@@ -87,7 +87,7 @@ YoutubeLite.fetchSnippet = function( videoId, callback ){
                 snippet.title = replaceAll( snippet.title, '<', '&lt;');
                 snippet.channelTitle = replaceAll( snippet.channelTitle, '<', '&lt;');
                 var duration = YoutubeLite.parseDuration( videos.items[0].contentDetails.duration )
-                if( duration ){
+                if( duration || duration === 0 ){
                     snippet.duration = timeToString( duration );
                 }
                 else{

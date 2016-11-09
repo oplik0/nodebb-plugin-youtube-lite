@@ -25,7 +25,8 @@ describe( 'Durations', function(){
             ['P', '00:00'],
             ['PT1H', '1:00:00'],
             ['PT1M', '01:00'],
-            ['PT1S', '00:01']
+            ['PT1S', '00:01'],
+            ['PT0S', '00:00']
         ].every( function( d ){
             var duration = youtubeLite.parseDuration( d[0] );
             
