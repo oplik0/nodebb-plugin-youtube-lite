@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-youtube-embed",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "nbbpm": {
     "compatibility": "^1.0.3 "
   },
