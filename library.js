@@ -100,9 +100,7 @@ YoutubeLite.fetchSnippet = function( videoId, callback ){
                     }
                 }
                 else{
-                    snippet.duration = 'ERROR: Unable to parse duration due to lack of contentDetails. Please notify an administrator!';
-                    winston.error( 'Video item did not have contentDetails for video item [' + videoId + '] - videos: ' +
-                        JSON.stringify( videos ) );
+                    snippet.duration = 'N/A';
                 }
                 
                 
@@ -250,12 +248,24 @@ function filter(data, match, preview, callback){
                 content += '</a>';
                 var thumbnails = snippet.thumbnails;
                 if( preview ){
-                    var img = thumbnails.medium || thumbnails.default || thumbnails.high || thumbnails.standard;
+                    var img;
+                    if( thumbnails ){
+                        img = thumbnails.high || thumbnails.standard || thumbnails.default || thumbnails.medium;
+                    }
+                    else{
+                        img = 'https://i.ytimg.com/vi/' + videoId + '/default.jpg';
+                    }
                     content += '<br><img src="' + img.url + '"/>';
                 }
                 else{
                    
-                    var img = thumbnails.high || thumbnails.standard || thumbnails.default || thumbnails.medium;
+                    var img;
+                    if( thumbnails ){
+                        img = thumbnails.high || thumbnails.standard || thumbnails.default || thumbnails.medium;
+                    }
+                    else{
+                        img = 'https://i.ytimg.com/vi/' + videoId + '/default.jpg';
+                    }
                     content += '<div class="js-lazyYT lazyYT-container" data-youtube-id="' + videoId + '" data-width="640" data-height="360" data-parameters="' + queryString + '" style="width: 640px; padding-bottom: 360px;">' +
                             '\n <div class="ytp-thumbnail lazyYT-image-loaded" style="background-image: url(&quot;' + img.url + '&quot;);">' +
                             '\n  <button class="ytp-large-play-button ytp-button" tabindex="23" aria-live="assertive" style="transform: scale(0.85);" onclick="$(this).lazyYT(this);return false;">' +

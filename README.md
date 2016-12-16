@@ -18,6 +18,8 @@ Search in the
 
 ## Changes
 
+    0.6.6
+     - Rejected videos lack thumbnails, too.
     0.6.5
      - Defensive coding in case Youtube returns a video item that
        doesn't have contentDetails.

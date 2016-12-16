@@ -69,13 +69,7 @@ describe('Youtube API call',function(){
                         {
                             snippet: {
                                 title: 'Video title!',
-                                channelTitle: 'Channel Title!',
-                                thumbnails:{
-                                    default:{ url:'https://i.ytimg.com/vi/goodvideo/default.jpg'},
-                                    high:{ url:'https://i.ytimg.com/vi/goodvideo/hqdefault.jpg'},
-                                    medium:{ url:'https://i.ytimg.com/vi/goodvideo/mqdefault.jpg'},
-                                    standard:{ url:'https://i.ytimg.com/vi/goodvideo/sddefault.jpg'},
-                                }
+                                channelTitle: 'Channel Title!'
                             },
                         }
                         ]
@@ -85,13 +79,7 @@ describe('Youtube API call',function(){
                     {
                         title: 'Video title!',
                         channelTitle: 'Channel Title!',
-                        duration: 'ERROR: Unable to parse duration due to lack of contentDetails. Please notify an administrator!',
-                        thumbnails:{
-                            default:{ url:'https://i.ytimg.com/vi/goodvideo/default.jpg'},
-                            high:{ url:'https://i.ytimg.com/vi/goodvideo/hqdefault.jpg'},
-                            medium:{ url:'https://i.ytimg.com/vi/goodvideo/mqdefault.jpg'},
-                            standard:{ url:'https://i.ytimg.com/vi/goodvideo/sddefault.jpg'}, 
-                        }
+                        duration: 'ERROR: Unable to parse duration due to lack of contentDetails. Please notify an administrator!'
                     } );
                     
                 });
