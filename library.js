@@ -86,15 +86,26 @@ YoutubeLite.fetchSnippet = function( videoId, callback ){
                 var snippet = videos.items[0].snippet;
                 snippet.title = replaceAll( snippet.title, '<', '&lt;');
                 snippet.channelTitle = replaceAll( snippet.channelTitle, '<', '&lt;');
-                var duration = YoutubeLite.parseDuration( videos.items[0].contentDetails.duration )
-                if( duration || duration === 0 ){
-                    snippet.duration = timeToString( duration );
+                
+                var duration;
+                if( videos.items[0].contentDetails ){
+                    duration = YoutubeLite.parseDuration( videos.items[0].contentDetails.duration )
+                    if( duration || duration === 0 ){
+                        snippet.duration = timeToString( duration );
+                    }
+                    else{
+                        snippet.duration = 'ERROR: Unable to parse duration "' + 
+                            videos.items[0].contentDetails.duration +
+                            '". Please notify an administrator!';
+                    }
                 }
                 else{
-                    snippet.duration = 'ERROR: Unable to parse duration "' + 
-                        videos.items[0].contentDetails.duration +
-                        '". Please notify an administrator!';
+                    snippet.duration = 'ERROR: Unable to parse duration due to lack of contentDetails. Please notify an administrator!';
+                    winston.error( 'Video item did not have contentDetails for video item [' + videoId + '] - videos: ' +
+                        JSON.stringify( videos ) );
                 }
+                
+                
                 cache.set( videoId, snippet );
                 callback( null, snippet );
             });

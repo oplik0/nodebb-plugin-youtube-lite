@@ -61,4 +61,39 @@ describe('Youtube API call',function(){
                     
                 });
     });
+    
+    it("doesn't crash when youtube doesn't return contentDetails",function(){
+        sandbox.stub( youtubeLite, 'apiRequest').yields( null, JSON.stringify(
+                    {
+                        items: [
+                        {
+                            snippet: {
+                                title: 'Video title!',
+                                channelTitle: 'Channel Title!',
+                                thumbnails:{
+                                    default:{ url:'https://i.ytimg.com/vi/goodvideo/default.jpg'},
+                                    high:{ url:'https://i.ytimg.com/vi/goodvideo/hqdefault.jpg'},
+                                    medium:{ url:'https://i.ytimg.com/vi/goodvideo/mqdefault.jpg'},
+                                    standard:{ url:'https://i.ytimg.com/vi/goodvideo/sddefault.jpg'},
+                                }
+                            },
+                        }
+                        ]
+                    }) );
+        youtubeLite.fetchSnippet( "semigoodvideo", function( err, snippet  ){
+                    expect( snippet ).to.deep.equal( 
+                    {
+                        title: 'Video title!',
+                        channelTitle: 'Channel Title!',
+                        duration: 'ERROR: Unable to parse duration due to lack of contentDetails. Please notify an administrator!',
+                        thumbnails:{
+                            default:{ url:'https://i.ytimg.com/vi/goodvideo/default.jpg'},
+                            high:{ url:'https://i.ytimg.com/vi/goodvideo/hqdefault.jpg'},
+                            medium:{ url:'https://i.ytimg.com/vi/goodvideo/mqdefault.jpg'},
+                            standard:{ url:'https://i.ytimg.com/vi/goodvideo/sddefault.jpg'}, 
+                        }
+                    } );
+                    
+                });
+    });
 });

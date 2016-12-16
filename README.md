@@ -18,6 +18,9 @@ Search in the
 
 ## Changes
 
+    0.6.5
+     - Defensive coding in case Youtube returns a video item that
+       doesn't have contentDetails.
     0.6.4
      - Don't falsely report an error for 0s duration
     0.6.3
