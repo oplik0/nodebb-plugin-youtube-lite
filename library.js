@@ -79,11 +79,11 @@ YoutubeLite.fetchSnippet = function( videoId, callback ){
                     return callback(err);
                 }
                 try {
-		    videos = JSON.parse(videos);	
-		} catch (err) {
-		    return callback(err);
-		}
-		
+                    videos = JSON.parse(videos);	
+                } catch (err) {
+                    return callback(err);
+                }
+
                 if( !videos.items || videos.items.length == 0 ){
                     cache.set( videoId, null );
                     return callback(null, null);

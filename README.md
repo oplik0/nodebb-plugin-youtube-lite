@@ -19,6 +19,7 @@ Search in the
 ## Changes
 
     0.6.7
+     - Exception handling for parsing API requests.
      - Unavailable videos don't have a channel name, replaceAll checks for no text.
     0.6.6
      - Rejected videos lack thumbnails, too.
