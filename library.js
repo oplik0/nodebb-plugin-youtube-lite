@@ -124,6 +124,9 @@ YoutubeLite.fetchSnippet = function( videoId, callback ){
 }
 
 function replaceAll(text, search, replace) {
+	if( !text ){
+		return '';
+	}
     if (replace === undefined) {
         return text.toString();
     }
