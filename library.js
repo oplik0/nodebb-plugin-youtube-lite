@@ -419,4 +419,14 @@ function timeToString(seconds){
 
 YoutubeLite.timeToString = timeToString;
 
+YoutubeLite.filterSanitizeConfig  = function (sanitizeConfig, callback) {
+    sanitizeConfig.allowedTags.push('svg', 'path');
+    sanitizeConfig.allowedAttributes.svg = sanitizeConfig.allowedAttributes.svg || [];
+    sanitizeConfig.allowedAttributes.svg.push('viewbox', 'height', 'version', 'width' );
+    sanitizeConfig.allowedAttributes.path = sanitizeConfig.allowedAttributes.path || [];
+    sanitizeConfig.allowedAttributes.path.push('class', 'd', 'fill', 'fill-opacity' );
+	sanitizeConfig.allowedAttributes.button.push('onclick', 'aria-*');
+	callback(null, sanitizeConfig);
+};
+
 module.exports = YoutubeLite;
