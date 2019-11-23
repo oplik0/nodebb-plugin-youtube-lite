@@ -1,19 +1,32 @@
 {
-  "name": "nodebb-plugin-youtube-lite",
-  "version": "0.2.0",
-  "description": "NodeBB Youtube Lite Plugin",
+  "name": "nodebb-plugin-youtube-embed",
+  "version": "0.6.7",
+  "nbbpm": {
+    "compatibility": "^1.0.3 "
+  },
+  "description": "NodeBB Youtube Embed Plugin",
   "main": "library.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- ./tests -t 100000"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/a5mith/nodebb-plugin-youtube-lite"
+    "url": "git+https://github.com/boomzillawtf/nodebb-plugin-youtube-embed.git"
+  },
+  "dependencies": {
+    "lru-cache": "^4.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "winston": "^2.2.0",
+    "sinon": "^1.17"
   },
   "keywords": [
     "nodebb",
     "plugin",
-    "youtube-lite",
+    "youtube",
     "custom",
     "embed",
     "lazyload"
@@ -23,11 +36,16 @@
     "email": "35hzcommunity@gmail.com"
   },
   "license": "BSD-2-Clause",
-  "bugs": {
-    "url": "https://github.com/a5mith/nodebb-plugin-youtube-lite/issues"
+  "_npmUser": {
+    "name": "boomzillawtf"
   },
-  "readme": "",
-  "readmeFilename": "README.md",
-  "_id": "nodebb-plugin-youtube-lite@0.2.0",
-  "_from": "nodebb-plugin-youtube-lite@~0.2.0"
+  "bugs": {
+    "url": "https://github.com/boomzillawtf/nodebb-plugin-youtube-embed/issues"
+  },
+  "maintainers": [
+    {
+      "name": "boomzillawtf",
+      "email": "boomzillawtf@gmail.com"
+    }
+  ]
 }

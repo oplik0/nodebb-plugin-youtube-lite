@@ -5,15 +5,19 @@
 	"url": "https://github.com/a5mith/nodebb-plugin-youtube-lite",
 	"library": "./library.js",
 	"hooks": [
-        { "hook": "filter:post.parse", "method": "parse", "callbacked": true }	],
+		{ "hook": "filter:parse.raw", "method": "parseRaw", "priority": 10 },
+		{ "hook": "filter:parse.post", "method": "parsePost", "priority": 10 },
+		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
+		{ "hook": "static:app.load", "method": "init" }		
+	],	
+	"templates": "templates",
+	"scripts": [
+	"static/lib/lazyYT.js"
+	],
 	"staticDirs": {
         "static": "./static"
     },
     "less": [
-        "static/style.less"
-    ],
-    "scripts": [
-		"static/lib/lazyYT.js",
-        "static/lib/main.js"
+	"./static/style.less"
 	]
 }
