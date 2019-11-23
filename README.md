@@ -17,6 +17,9 @@ Search in the
     npm install nodebb-plugin-youtube-embed
 
 ## Changes
+    0.6.8
+     - update require (added by barisusakli)
+     - add compatibility with 1.13.x (thanks to NormandoHall work [here](https://github.com/boomzillawtf/nodebb-plugin-youtube-embed/issues/14) )
 
     0.6.7
      - Exception handling for parsing API requests.
